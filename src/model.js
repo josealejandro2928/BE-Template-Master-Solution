@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: './database.sqlite3',
+  storage: process.env.NODE_ENV == "development" ? './database.sqlite3' : './test_database.sqlite3',
   logging: process.env.NODE_ENV == "development" ? true : false
 });
 
